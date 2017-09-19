@@ -21,7 +21,9 @@ public class SparkConfiguration {
         return new SparkConf()
                 .setMaster(sparkMasterHost)
                 .setAppName(appName)
-                .set("spark.cassandra.connection.host", cassandraHost);
+                .set("spark.cassandra.connection.host", cassandraHost)
+                .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+                .set("spark.kryo.registrator","com.griddynamics.dao.serializer.CustomSerializerRegistrator");
     }
 
     @Bean
