@@ -3,10 +3,9 @@ package com.griddynamics.dao.model;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Product implements Serializable {
+public class Product {
 
     private int pid;
     private String name;

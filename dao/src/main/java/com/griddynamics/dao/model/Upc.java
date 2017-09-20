@@ -3,9 +3,7 @@ package com.griddynamics.dao.model;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import java.io.Serializable;
-
-public class Upc implements Serializable {
+public class Upc {
 
     private int uid;
     private String name;

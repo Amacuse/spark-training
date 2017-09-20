@@ -1,9 +1,8 @@
 package com.griddynamics.dao.dto;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class ProductDto implements Serializable {
+public class ProductDto {
 
     private int statusCode;
     private List<Integer> uids;

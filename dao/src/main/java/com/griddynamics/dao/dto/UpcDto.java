@@ -1,8 +1,6 @@
 package com.griddynamics.dao.dto;
 
-import java.io.Serializable;
-
-public class UpcDto implements Serializable {
+public class UpcDto {
 
     private int uid;
     private int statusCode;
