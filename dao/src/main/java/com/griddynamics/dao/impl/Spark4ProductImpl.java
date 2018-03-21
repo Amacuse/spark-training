@@ -5,11 +5,8 @@ import com.griddynamics.dao.dto.ProductDto;
 import com.griddynamics.dao.dto.UpcDto;
 import com.griddynamics.dao.model.Product;
 import org.apache.commons.lang3.tuple.Pair;
-import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.sql.types.DataTypes;
 import org.springframework.stereotype.Service;
-import scala.Tuple2;
 
 import java.util.ArrayList;
 import java.util.List;

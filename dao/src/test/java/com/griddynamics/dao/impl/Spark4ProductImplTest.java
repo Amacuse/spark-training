@@ -1,21 +1,13 @@
 package com.griddynamics.dao.impl;
 
 import com.datastax.driver.core.Session;
-import com.datastax.spark.connector.japi.rdd.CassandraJavaPairRDD;
 import com.griddynamics.dao.Spark4Product;
 import com.griddynamics.dao.Spark4Upc;
 import com.griddynamics.dao.config.Application;
-import com.griddynamics.dao.dto.ProductDto;
-import com.griddynamics.dao.dto.UpcDto;
 import com.griddynamics.dao.model.Product;
 import com.griddynamics.dao.model.Upc;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaPairRDD;
-import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.sql.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -23,15 +15,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import scala.Tuple2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.datastax.spark.connector.japi.CassandraJavaUtil.*;
-import static org.apache.spark.sql.functions.col;
-import static org.apache.spark.sql.functions.column;
 import static org.testng.Assert.*;
 
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)

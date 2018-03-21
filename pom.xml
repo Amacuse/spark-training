@@ -25,7 +25,7 @@
         <appache.common>3.6</appache.common>
         <http.client>4.5.3</http.client>
         <http.core>4.4.6</http.core>
-        <testNg>RELEASE</testNg>
+        <testNg>6.11</testNg>
         <start.class>com.griddynamics.dao.config.Application</start.class>
     </properties>
 
@@ -49,6 +49,11 @@
                         <artifactId>jackson-annotations</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>2.9.0</version>
             </dependency>
             <dependency>
                 <groupId>com.datastax.spark</groupId>

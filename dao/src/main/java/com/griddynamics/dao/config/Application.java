@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
-@SpringBootApplication(scanBasePackages = "com.griddynamics.dao")
+@SpringBootApplication(scanBasePackages = "com.griddynamics")
 @PropertySource(value = "classpath:application.properties")
 public class Application {
 
