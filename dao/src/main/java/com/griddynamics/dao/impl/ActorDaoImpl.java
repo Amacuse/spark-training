@@ -16,7 +16,6 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
 import java.util.Spliterator;
-import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 import static java.util.stream.Collectors.toList;
@@ -45,9 +44,9 @@ public class ActorDaoImpl implements ActorDao {
     @Override
     public List<Actor> getAsJSON() {
         return StreamSupport.stream(getRows(actorsByIdJson), false)
-                .flatMap(row -> {
+                .map(row -> {
                     try {
-                        return Stream.of(objectMapper.readValue(row.getString("actor"), Actor.class));
+                        return objectMapper.readValue(row.getString("actor"), Actor.class);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -59,9 +58,8 @@ public class ActorDaoImpl implements ActorDao {
     @Override
     public List<Actor> getAsObject() {
         return StreamSupport.stream(getRows(actorsByIdObject), false)
-                .flatMap(row -> Stream.of(row.get("actor", Actor.class)))
+                .map(row -> row.get("actor", Actor.class))
                 .collect(toList());
-
     }
 
     private Spliterator<Row> getRows(String table) {
@@ -69,5 +67,29 @@ public class ActorDaoImpl implements ActorDao {
                 .select()
                 .from(table)
                 .setFetchSize(dataAmount)).spliterator();
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public String getActorsByIdJson() {
+        return actorsByIdJson;
+    }
+
+    public void setActorsByIdJson(String actorsByIdJson) {
+        this.actorsByIdJson = actorsByIdJson;
+    }
+
+    public String getActorsByIdObject() {
+        return actorsByIdObject;
+    }
+
+    public void setActorsByIdObject(String actorsByIdObject) {
+        this.actorsByIdObject = actorsByIdObject;
     }
 }
